@@ -1,0 +1,49 @@
+Program -> program id' block.
+block -> c_stmt 
+block -> var_del_sec c_stmt
+var_del_sec -> var var_del'
+var_del' -> var_del
+var_del' -> var_del ; var_del'
+var_del -> id' : type
+id' -> id
+id' -> id id'
+type -> int
+type -> bool 
+c_stmt -> begin stmt' end
+stmt' -> stmt
+stmt' -> stmt ; stmt'
+stmt -> s_stmt
+stmt -> str_stmt 
+s_stmt -> asmt_stmt
+s_stmt -> read_stmt
+s_stmt -> write_stmt 
+asmt_stmt -> id' := expr 
+read_stmnt -> read id' 
+write_stmt -> write id'
+write_stmt -> write literal 
+str_stmt -> if_stmt
+str_stmt -> while_stmt
+str_stmt -> c_stmt 
+if_stmt -> if bool_expr then stmt
+if_stmt -> if bool_expr then stmt else stmt 
+while_stmt -> while bool_expr do stmt 
+expr -> arithmetic_expr
+expr -> bool_expr 
+arithmetic_expr -> term 
+arithmetic_expr -> arithmetic_expr + term
+arithmetic_expr -> arithmetic_expr - term
+term -> factor 
+term -> term * factor
+factor -> id
+factor -> ltr 
+literal -> ltr
+literal -> bool_literal  
+ltr -> digit
+bool_literal -> true
+bool_literal -> false 
+bool_expr -> bool_literal
+bool_expr -> arithmetic_expr > arithmetic_expr
+bool_expr -> arithmetic_expr >= arithmetic_expr
+bool_expr -> arithmetic_expr = arithmetic_expr
+bool_expr -> arithmetic_expr <= arithmetic_expr
+bool_expr -> arithmetic_expr < arithmetic_expr
